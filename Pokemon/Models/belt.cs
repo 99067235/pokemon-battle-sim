@@ -17,12 +17,23 @@ namespace Pokemon.Models
 
         public void add(pokeball pokeball)
         {
-            belt.Add(pokeball);
+            if (belt.Count > 6)
+            {
+                throw new InvalidOperationException("Cannot add more than 6 pokeballs to the belt.");
+            } else
+            {
+                belt.Add(pokeball);
+            }
         }
 
         public pokeball getItemFromBelt(int index)
         {
             return belt[index];
+        }
+
+        public int getBeltLength()
+        {
+            return this.belt.Count;
         }
 
         public pokeball makePokeball(Pokemon? pokemon = null)
@@ -36,6 +47,11 @@ namespace Pokemon.Models
                 pokeball pokeball = new();
                 return pokeball;
             }
+        }
+
+        public void RemovePokeball(pokeball pokeball)
+        {
+            belt.Remove(pokeball);
         }
     }
 }

@@ -12,55 +12,89 @@ namespace Pokemon.Models
             }
             Pokemon? pokemonTrainer1 = pokeballTrainer1.Use(trainer1);
             Pokemon? pokemonTrainer2 = pokeballTrainer2.Use(trainer2);
-            if (pokeballTrainer1 == null || pokemonTrainer2 == null)
+            bool? trainer1HasWon = pokemonTrainer1.Versus(pokemonTrainer1.type, pokemonTrainer2.type);
+            if (trainer1HasWon == true)
             {
-                return null;
+                trainer1.belt.RemovePokeball(pokeballTrainer1);
+                return trainer1;
+            } else if (trainer1HasWon == false)
+            {
+                trainer2.belt.RemovePokeball(pokeballTrainer2);
+                return trainer2;
             }
             else
             {
-                bool? trainer1HasWon = pokemonTrainer1.Versus(pokemonTrainer2);
-                if (trainer1HasWon == true)
-                {
-                    return trainer1;
-                } else if (trainer1HasWon == false)
-                {
-                    return trainer2;
-                }
-                else
-                {
-                    return null;
-                }
+                trainer1.belt.RemovePokeball(pokeballTrainer1);
+                trainer2.belt.RemovePokeball(pokeballTrainer2);
+                return null;
             }
         }
 
         public static void HandleBattle(Trainer trainer1, Trainer trainer2)
         {
-            // Start the battle
-            // Define the variables which keep track of the amount of wins
             int winsTrainer1 = 0;
             int winsTrainer2 = 0;
-            // Define a variable to keep track of how many ties there are played
             int ties = 0;
-            while (true)
+            int rounds = 0;
+            Trainer previousWinner = null;
+            pokeball pokeballPreviousWinner = null;
+            while (trainer1.belt.getBeltLength() > 0 && trainer2.belt.getBeltLength() > 0)
             {
                 try
                 {
-                    var trainer1Pokemon = trainer1.belt.getItemFromBelt(winsTrainer1);
-                    var trainer2Pokemon = trainer2.belt.getItemFromBelt(winsTrainer2);
-                    Trainer winner = StartBattle(trainer1, trainer2, trainer1Pokemon, trainer2Pokemon);
+                    rounds = rounds + 1;
+                    var pokeballTrainer1 = trainer1.belt.getItemFromBelt(winsTrainer1);
+                    var pokeballTrainer2 = trainer2.belt.getItemFromBelt(winsTrainer2);
+
+                    Trainer winner = StartBattle(trainer1, trainer2, pokeballTrainer1, pokeballTrainer2);
+
                     if (winner != null)
                     {
+                        Trainer loser = (winner == trainer1) ? trainer2 : trainer1;
+                        Console.WriteLine("Trainer " + winner.name + " has won!");
+                        Console.WriteLine("The pokemon of " + loser.name + " returned to his pokeball!");
+                        loser.belt.RemovePokeball(pokeballTrainer2);
+
                         if (winner == trainer1)
                         {
                             winsTrainer1++;
+                            previousWinner = trainer1;
+                            pokeballPreviousWinner = pokeballTrainer1;
                         }
                         else
                         {
                             winsTrainer2++;
+                            previousWinner = trainer2;
+                            pokeballPreviousWinner = pokeballTrainer2;
                         }
                     }
                     else
                     {
+                        if (rounds == 1)
+                        {
+                            Console.WriteLine("Its a tie in the first round! Both pokemon will be returned to their pokeballs.");
+                            trainer1.belt.RemovePokeball(pokeballTrainer1);
+                            trainer2.belt.RemovePokeball(pokeballTrainer2);
+
+                        } else
+                        {
+                            if (previousWinner == null)
+                            {
+                                Random random = new Random();
+                                int randomNumber = random.Next(1, 2);
+                                if (randomNumber == 1)
+                                {
+                                    previousWinner = trainer1;
+                                }
+                                else
+                                {
+                                    previousWinner = trainer2;
+                                }
+                            }
+                            Console.WriteLine("Its a tie! The pokemon of " + previousWinner.name + " will be returned to their pokeballs.");
+                            previousWinner.belt.RemovePokeball(pokeballPreviousWinner);
+                        }
+                        // previousWinner.belt.RemovePokeball(pokeballPreviousWinner);
                         ties++;
                     }
                 }
@@ -69,6 +103,7 @@ namespace Pokemon.Models
                     break;
                 }
             }
+
             Console.WriteLine("Results: ");
             if (winsTrainer1 > winsTrainer2)
             {

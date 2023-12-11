@@ -7,9 +7,9 @@
         protected readonly String? strength;
         protected readonly String? weakness;
         public bool useable;
-        public string type;
+        public PokemonTypes type;
         public readonly BattleHandler batteHandler;
-        public Pokemon(bool wantsToName = true, string? DefaultName = "NoGivenName")
+        public Pokemon(bool wantsToName = true)
         {
             if (wantsToName)
             {
@@ -20,7 +20,7 @@
             {
                 this.giveName(false, defaultName);
             }
-            this.type = "Fire";
+            this.type = PokemonTypes.Fire;
         }
         public void giveName(bool wantsToName = true, string? givenName = null)
         {
@@ -48,15 +48,14 @@
             }
         }
 
-        public bool? Versus(Pokemon pokemon)
+        public bool? Versus(PokemonTypes enemyType, PokemonTypes type)
         {
-            var enemy_type = pokemon.type;
-            if (enemy_type != null && this.type != null)
+            if (enemyType != null && this.type != null)
             {
-                bool? result = this.batteHandler.Versus(enemy_type);
+                var result = BattleHandler.Versus(type, enemyType);
                 return result;
             }
-            Console.WriteLine("Oh no, an error has occurred.");
+            Console.WriteLine("An error has occurred.");
             return null;
         }
 
@@ -78,11 +77,11 @@
     {
         public override void BattleCry()
         {
-            Console.WriteLine("\n*Charmander battlecry sounds*");
+            Console.WriteLine("\n*Charmander sounds*");
         }
         public Charmander(bool wantsToName = true, string ? defaultName = "Charmander"): base(wantsToName)
         {
-            this.type = "Fire";
+            this.type = PokemonTypes.Fire;
             this.defaultName = defaultName;
         }
     }
@@ -91,12 +90,12 @@
     {
         public override void BattleCry()
         {
-            Console.WriteLine("\n*Squirtle battlecry sounds*");
+            Console.WriteLine("\n*Squirtle sounds*");
         }
         public Squirtle(bool wantsToName = true, string ? defaultName = "Squirtle"): base(wantsToName)
         {
             this.defaultName = defaultName;
-            this.type = "Water";
+            this.type = PokemonTypes.Water;
         }
     }
 
@@ -104,12 +103,12 @@
     {
         public override void BattleCry()
         {
-            Console.WriteLine("\n*Bulbasaur battlecry sounds*");
+            Console.WriteLine("\n*Bulbasaur sounds*");
         }
         public Bulbasaur(bool wantsToName = true, string defaultName = "Bulbasaur"): base(wantsToName)
         {
             this.defaultName = defaultName;
-            this.type = "Grass";
+            this.type = PokemonTypes.Grass;
         }
     }
 }
