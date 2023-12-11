@@ -41,3 +41,17 @@ C:\Users\jurri\Documents\Pokemon\Pokemon\Pokemon\obj\Debug\net7.0\refint\Pokemon
 C:\Users\jurri\Documents\Pokemon\Pokemon\Pokemon\obj\Debug\net7.0\Pokemon.pdb
 C:\Users\jurri\Documents\Pokemon\Pokemon\Pokemon\obj\Debug\net7.0\Pokemon.genruntimeconfig.cache
 C:\Users\jurri\Documents\Pokemon\Pokemon\Pokemon\obj\Debug\net7.0\ref\Pokemon.dll
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\bin\Debug\net7.0\Pokemon.exe
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\bin\Debug\net7.0\Pokemon.deps.json
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\bin\Debug\net7.0\Pokemon.runtimeconfig.json
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\bin\Debug\net7.0\Pokemon.dll
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\bin\Debug\net7.0\Pokemon.pdb
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.AssemblyInfoInputs.cache
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.AssemblyInfo.cs
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.csproj.CoreCompileInputs.cache
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.dll
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\refint\Pokemon.dll
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.pdb
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\Pokemon.genruntimeconfig.cache
+C:\Users\jurri\Documents\School\pokemon-battle-sim\Pokemon\obj\Debug\net7.0\ref\Pokemon.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jurri\\Documents\\School\\Pokemon\\Pokemon\\Pokemon\\Pokemon.csproj": {}
+    "C:\\Users\\jurri\\Documents\\School\\pokemon-battle-sim\\Pokemon\\Pokemon.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jurri\\Documents\\School\\Pokemon\\Pokemon\\Pokemon\\Pokemon.csproj": {
+    "C:\\Users\\jurri\\Documents\\School\\pokemon-battle-sim\\Pokemon\\Pokemon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jurri\\Documents\\School\\Pokemon\\Pokemon\\Pokemon\\Pokemon.csproj",
+        "projectUniqueName": "C:\\Users\\jurri\\Documents\\School\\pokemon-battle-sim\\Pokemon\\Pokemon.csproj",
         "projectName": "Pokemon",
-        "projectPath": "C:\\Users\\jurri\\Documents\\School\\Pokemon\\Pokemon\\Pokemon\\Pokemon.csproj",
+        "projectPath": "C:\\Users\\jurri\\Documents\\School\\pokemon-battle-sim\\Pokemon\\Pokemon.csproj",
         "packagesPath": "C:\\Users\\jurri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jurri\\Documents\\School\\Pokemon\\Pokemon\\Pokemon\\obj\\",
+        "outputPath": "C:\\Users\\jurri\\Documents\\School\\pokemon-battle-sim\\Pokemon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jurri\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -28,6 +28,12 @@ namespace Pokemon.Models
 
         public pokeball getItemFromBelt(int index)
         {
+            if (index < 0 || index >= belt.Count)
+            {
+                Random random = new Random();
+                index = random.Next(0, belt.Count);
+            }
+
             return belt[index];
         }
 
