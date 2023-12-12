@@ -94,7 +94,6 @@ namespace Pokemon.Models
                             Console.WriteLine("Its a tie! The pokemon of " + previousWinner.name + " will be returned to their pokeballs.");
                             previousWinner.belt.RemovePokeball(pokeballPreviousWinner);
                         }
-                        // previousWinner.belt.RemovePokeball(pokeballPreviousWinner);
                         ties++;
                     }
                 }

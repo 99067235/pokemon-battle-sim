@@ -10,8 +10,10 @@ internal partial class Program
             Belt beltTrainer2 = new();
             Console.WriteLine("Name Trainer 1: ");
             var nameTrainer1 = Console.ReadLine();
-            Trainer trainer1 = new Trainer(nameTrainer1, beltTrainer1);
-            beltTrainer1.trainerName = nameTrainer1;
+            Trainer trainer1 = new Trainer();
+            trainer1.nameTrainer(nameTrainer1);
+            trainer1.addBelt();
+            beltTrainer1.addTrainerName(nameTrainer1);
             Console.Write("Give the pokemon a name? y/n ");
             var answer = Console.ReadLine();
             for (var i = 0; i < 6; i++)
@@ -34,8 +36,10 @@ internal partial class Program
             }
             Console.WriteLine("Name Trainer 2: ");
             var nameTrainer2 = Console.ReadLine();
-            Trainer trainer2 = new Trainer(nameTrainer2, beltTrainer2);
-            beltTrainer2.trainerName = nameTrainer2;
+            Trainer trainer2 = new Trainer();
+            trainer1.nameTrainer(nameTrainer2);
+            trainer2.addBelt();
+            beltTrainer2.addTrainerName(nameTrainer2);
             Console.Write("Give the pokemon a name? y/n ");
             var answerTrainer2 = Console.ReadLine();
             for (var i = 0; i < 6; i++)

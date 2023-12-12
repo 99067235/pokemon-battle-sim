@@ -10,6 +10,11 @@ namespace Pokemon.Models
     {
         private List<pokeball> belt = new();
         public string trainerName;
+
+        public void addTrainerName(string trainerName)
+        {
+            this.trainerName = trainerName;
+        }
         public pokeball GetItemFromPokeball(int id)
         {
             return belt[id];

@@ -7,9 +7,16 @@
         public bool pokemonInUse { get; set; }
         public Pokemon? ReleasedPokemon { get; set; }
 
-        public Trainer(string name, Belt belt) {
+        public Trainer() {}
+
+        public void nameTrainer(string name)
+        {
             this.name = name;
-            this.belt = belt;
+        }
+
+        public void addBelt()
+        {
+            this.belt = new Belt();
         }
     }
 }
