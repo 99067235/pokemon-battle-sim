@@ -37,7 +37,7 @@ internal partial class Program
             Console.WriteLine("Name Trainer 2: ");
             var nameTrainer2 = Console.ReadLine();
             Trainer trainer2 = new Trainer();
-            trainer1.nameTrainer(nameTrainer2);
+            trainer2.nameTrainer(nameTrainer2);
             trainer2.addBelt();
             beltTrainer2.addTrainerName(nameTrainer2);
             Console.Write("Give the pokemon a name? y/n ");
