@@ -2,8 +2,8 @@
 {
     public class Trainer
     {
-        private string name { get; set; }
-        private Belt belt { get; set; }
+        private string name;
+        private Belt belt;
 
         public Trainer() {}
 
