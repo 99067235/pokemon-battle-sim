@@ -9,43 +9,20 @@
         public bool useable;
         public PokemonTypes type;
         public readonly BattleHandler batteHandler;
-        public Pokemon(bool wantsToName = true)
+        private static readonly List<string> pokemonNames = new List<string>
         {
-            if (wantsToName)
-            {
-                this.giveName();
-            }
-
-            else
-            {
-                this.giveName(false, defaultName);
-            }
-            this.type = PokemonTypes.Fire;
+            "Sparky", "Blaze", "Aqua", "Leafy", "Rocky",
+            "Fluffy", "Zappy", "Misty", "Sunny", "Breezy"
+        };
+        public Pokemon()
+        {
+            this.giveName();
         }
-        public void giveName(bool wantsToName = true, string? givenName = null)
+        public void giveName()
         {
-            if (wantsToName)
-            {
-                Console.Write("Enter your desired name: ");
-                givenName = Console.ReadLine();
-                if (givenName != null)
-                {
-                    this.givenName = givenName;
-                }
-                else
-                {
-                    this.givenName = "IGotNoName";
-                }
-            } else
-            {
-                if (givenName != null)
-                {
-                    this.givenName = givenName;
-                } else
-                {
-                    this.givenName = "IGotNoName";
-                }
-            }
+            Random random = new Random();
+            this.givenName = pokemonNames[random.Next(pokemonNames.Count)];
+
         }
 
         public bool? Versus(PokemonTypes enemyType, PokemonTypes type)
@@ -79,7 +56,7 @@
         {
             Console.WriteLine("\n*Charmander sounds*");
         }
-        public Charmander(bool wantsToName = true, string ? defaultName = "Charmander"): base(wantsToName)
+        public Charmander(string ? defaultName = "Charmander"): base()
         {
             this.type = PokemonTypes.Fire;
             this.defaultName = defaultName;
@@ -92,7 +69,7 @@
         {
             Console.WriteLine("\n*Squirtle sounds*");
         }
-        public Squirtle(bool wantsToName = true, string ? defaultName = "Squirtle"): base(wantsToName)
+        public Squirtle(string ? defaultName = "Squirtle"): base()
         {
             this.defaultName = defaultName;
             this.type = PokemonTypes.Water;
@@ -105,7 +82,7 @@
         {
             Console.WriteLine("\n*Bulbasaur sounds*");
         }
-        public Bulbasaur(bool wantsToName = true, string defaultName = "Bulbasaur"): base(wantsToName)
+        public Bulbasaur(string defaultName = "Bulbasaur"): base()
         {
             this.defaultName = defaultName;
             this.type = PokemonTypes.Grass;

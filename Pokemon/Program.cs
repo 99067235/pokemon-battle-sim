@@ -14,8 +14,6 @@ internal partial class Program
             trainer1.nameTrainer(nameTrainer1);
             trainer1.addBelt();
             beltTrainer1.addTrainerName(nameTrainer1);
-            Console.Write("Give the pokemon a name? y/n ");
-            var answer = Console.ReadLine();
             for (var i = 0; i < 6; i++)
             {
                 Random random = new Random();
@@ -23,15 +21,15 @@ internal partial class Program
 
                 if (randomPokemon == 1)
                 {
-                    trainer1.belt.add(trainer1.belt.makePokeball(new Charmander(answer == "y")));
+                    trainer1.belt.add(trainer1.belt.makePokeball(new Charmander()));
                 }
                 else if (randomPokemon == 2)
                 {
-                    trainer1.belt.add(trainer1.belt.makePokeball(new Squirtle(answer == "y")));
+                    trainer1.belt.add(trainer1.belt.makePokeball(new Squirtle()));
                 }
                 else
                 {
-                    trainer1.belt.add(trainer1.belt.makePokeball(new Bulbasaur(answer == "y")));
+                    trainer1.belt.add(trainer1.belt.makePokeball(new Bulbasaur()));
                 }
             }
             Console.WriteLine("Name Trainer 2: ");
@@ -40,8 +38,6 @@ internal partial class Program
             trainer2.nameTrainer(nameTrainer2);
             trainer2.addBelt();
             beltTrainer2.addTrainerName(nameTrainer2);
-            Console.Write("Give the pokemon a name? y/n ");
-            var answerTrainer2 = Console.ReadLine();
             for (var i = 0; i < 6; i++)
             {
                 Random random = new Random();
@@ -49,15 +45,15 @@ internal partial class Program
 
                 if (randomPokemon == 1)
                 {
-                    trainer2.belt.add(trainer2.belt.makePokeball(new Charmander(answerTrainer2 == "y")));
+                    trainer2.belt.add(trainer2.belt.makePokeball(new Charmander()));
                 }
                 else if (randomPokemon == 2)
                 {
-                    trainer2.belt.add(trainer2.belt.makePokeball(new Squirtle(answerTrainer2 == "y")));
+                    trainer2.belt.add(trainer2.belt.makePokeball(new Squirtle()));
                 }
                 else
                 {
-                    trainer2.belt.add(trainer2.belt.makePokeball(new Bulbasaur(answerTrainer2 == "y")));
+                    trainer2.belt.add(trainer2.belt.makePokeball(new Bulbasaur()));
                 }
             }
             Battle.HandleBattle(trainer1, trainer2);
