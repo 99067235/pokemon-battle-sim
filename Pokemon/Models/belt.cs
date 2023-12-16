@@ -9,7 +9,7 @@ namespace Pokemon.Models
     public sealed class Belt
     {
         private List<pokeball> belt = new();
-        public string trainerName;
+        private string trainerName;
 
         public void addTrainerName(string trainerName)
         {

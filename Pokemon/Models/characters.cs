@@ -2,13 +2,8 @@
 {
     public abstract class Pokemon
     {
-        public String? defaultName;
-        public string? givenName;
-        protected readonly String? strength;
-        protected readonly String? weakness;
-        public bool useable;
-        public PokemonTypes type;
-        public readonly BattleHandler batteHandler;
+        private string? givenName;
+        private PokemonTypes type;
         private static readonly List<string> pokemonNames = new List<string>
         {
             "Sparky", "Blaze", "Aqua", "Leafy", "Rocky",
@@ -25,6 +20,21 @@
 
         }
 
+        public string getName()
+        {
+            return this.givenName;
+        }
+
+        public PokemonTypes getType()
+        {
+            return this.type;
+        }
+
+        public void setType(PokemonTypes type)
+        {
+            this.type = type;
+        }
+
         public bool? Versus(PokemonTypes enemyType, PokemonTypes type)
         {
             if (enemyType != null && this.type != null)
@@ -34,17 +44,6 @@
             }
             Console.WriteLine("An error has occurred.");
             return null;
-        }
-
-        public string getStrength()
-        {
-            if (this.strength != null)
-            {
-                return this.strength;
-            } else
-            {
-                return null;
-            }
         }
 
         public abstract void BattleCry();
@@ -58,8 +57,7 @@
         }
         public Charmander(string ? defaultName = "Charmander"): base()
         {
-            this.type = PokemonTypes.Fire;
-            this.defaultName = defaultName;
+            this.setType(PokemonTypes.Fire);
         }
     }
 
@@ -71,8 +69,7 @@
         }
         public Squirtle(string ? defaultName = "Squirtle"): base()
         {
-            this.defaultName = defaultName;
-            this.type = PokemonTypes.Water;
+            this.setType(PokemonTypes.Water);
         }
     }
 
@@ -84,8 +81,7 @@
         }
         public Bulbasaur(string defaultName = "Bulbasaur"): base()
         {
-            this.defaultName = defaultName;
-            this.type = PokemonTypes.Grass;
+            this.setType(PokemonTypes.Grass);
         }
     }
 }
