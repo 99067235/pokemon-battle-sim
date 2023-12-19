@@ -21,6 +21,7 @@ namespace Pokemon.Models
             {
                 try
                 {
+                    Thread.Sleep(1000);
                     rounds = rounds + 1;
                     var pokeballTrainer1 = trainer1.getItemFromBelt(winsTrainer1);
                     var pokeballTrainer2 = trainer2.getItemFromBelt(winsTrainer2);
