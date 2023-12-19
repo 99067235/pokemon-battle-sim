@@ -22,7 +22,7 @@ internal partial class Program
             trainer2.addBelt();
             beltTrainer2.addTrainerName(nameTrainer2);
             trainer2.createPokemonTeam();
-            Battle.HandleBattle(trainer1, trainer2);
+            Arena.HandleBattle(trainer1, trainer2);
             Console.Write("Do you want to play again?");
             if (Console.ReadLine() != "y")
             {
