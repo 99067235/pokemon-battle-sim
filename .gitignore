@@ -1,6 +1,8 @@
 # Visual Studio Code
 .vscode/
-
+.vs/
+bin/
+obj/
 # Visual Studio
 *.suo
 *.user
