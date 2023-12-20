@@ -14,10 +14,21 @@ namespace Pokemon.Models
         private static int winsTrainer2 = 0;
         private static int ties = 0;
         private static int rounds = 0;
-        private static int interval = 0;
+        private static int interval = 2000;
+        private static List<Trainer> trainers = new();
+
         public static void HandleBattle(Trainer trainer1, Trainer trainer2)
         {
+            trainers.Add(trainer1);
+            trainers.Add(trainer2);
+            trainer1 = trainers.Find(t => t.Equals(trainer1));
+            trainer2 = trainers.Find(t => t.Equals(trainer2));
+
             battles++;
+
+            trainer1.setBattlePlayed(battles);
+            trainer2.setBattlePlayed(battles);
+
             Trainer previousWinner = null;
             pokeball pokeballPreviousWinner = null;
             while (trainer1.getBeltLength() > 0 && trainer2.getBeltLength() > 0)
@@ -25,28 +36,28 @@ namespace Pokemon.Models
                 try
                 {
                     Thread.Sleep(interval);
-                    rounds = rounds + 1;
-                    var pokeballTrainer1 = trainer1.getItemFromBelt(winsTrainer1);
-                    var pokeballTrainer2 = trainer2.getItemFromBelt(winsTrainer2);
+                    rounds++;
+                    var pokeballTrainer1 = trainer1.getItemFromBelt(trainer1.getScore());
+                    var pokeballTrainer2 = trainer2.getItemFromBelt(trainer2.getScore());
 
                     Trainer winner = Battle.StartBattle(trainer1, trainer2, pokeballTrainer1, pokeballTrainer2);
 
                     if (winner != null)
                     {
                         Trainer loser = (winner == trainer1) ? trainer2 : trainer1;
-                        Console.WriteLine("\nTrainer " + winner.getName() + " has won!");
-                        Console.WriteLine("\nThe pokemon of " + loser.getName() + " returned to his pokeball!");
+                        Console.WriteLine($"\nTrainer {winner.getName()} has won!");
+                        Console.WriteLine($"\nThe pokemon of {loser.getName()} returned to his pokeball!");
                         loser.RemovePokeball(pokeballTrainer2);
 
                         if (winner == trainer1)
                         {
-                            winsTrainer1++;
+                            trainer1.increaseScore();
                             previousWinner = trainer1;
                             pokeballPreviousWinner = pokeballTrainer1;
                         }
                         else
                         {
-                            winsTrainer2++;
+                            trainer2.increaseScore();
                             previousWinner = trainer2;
                             pokeballPreviousWinner = pokeballTrainer2;
                         }
@@ -75,29 +86,37 @@ namespace Pokemon.Models
                                     previousWinner = trainer2;
                                 }
                             }
-                            Console.WriteLine("\nIts a tie! The pokemon of " + previousWinner.getName() + " will be returned to their pokeballs.");
+                            Console.WriteLine($"\nIts a tie! The pokemon of {previousWinner.getName()} will be returned to their pokeballs.");
                             previousWinner.RemovePokeball(pokeballPreviousWinner);
                         }
                         ties++;
                     }
                     Console.WriteLine("\n\n");
+                    trainer1.increasePlayedRounds();
+                    trainer2.increasePlayedRounds();
                 }
                 catch
                 {
                     break;
                 }
             }
-
-            showScoreBoard();
         }
 
         public static void showScoreBoard()
         {
             Console.WriteLine("\n\nPokemon Battle Scoreboard");
             Console.WriteLine("-------------------------");
-            Console.WriteLine($"Trainer 1 Wins: {winsTrainer1}");
-            Console.WriteLine($"Trainer 2 Wins: {winsTrainer2}");
-            Console.WriteLine($"Ties: {ties}");
+            for (var i = 0; i < trainers.Count(); i++)
+            {
+                var trainer = trainers[i];
+                if ((i + 1) % 2 == 1)
+                {
+                    Console.WriteLine($"\nRound {trainer.getBattlePlayed()}:");
+                    Console.WriteLine("Wins:");
+                }
+                Console.WriteLine($" {trainer.getName()}: {trainer.getScore()}");
+            }
+            Console.WriteLine($"\nTotal Ties: {ties}");
             Console.WriteLine($"Total Rounds: {rounds}");
             Console.WriteLine($"Total Battles: {battles}");
         }

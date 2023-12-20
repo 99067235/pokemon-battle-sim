@@ -1,15 +1,50 @@
-﻿namespace Pokemon.Models
+﻿using System.Threading.Tasks.Sources;
+
+namespace Pokemon.Models
 {
     public class Trainer
     {
         private string name;
         private Belt belt;
+        private int score;
+        private int rounds;
+        private int battlePlayed;
 
         public Trainer() {}
 
         public void nameTrainer(string name)
         {
             this.name = name;
+        }
+
+        public void increaseScore()
+        {
+            score++;
+        }
+
+        public int getScore()
+        {
+            return score;
+        }
+
+        public void increasePlayedRounds()
+        {
+            rounds++;
+        }
+
+        public int getPlayedRounds()
+        {
+            return rounds;
+        }
+
+        public void setBattlePlayed(int battlePlayed)
+        {
+            this.battlePlayed = battlePlayed;
+        }
+
+        public int getBattlePlayed()
+        {
+            return battlePlayed;
         }
 
         public void addBelt()

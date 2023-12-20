@@ -32,6 +32,7 @@ internal partial class Program
             Console.WriteLine("\n\nDo you want to play again? (y/n)");
             if (Console.ReadLine() != "y")
             {
+                Arena.showScoreBoard();
                 break;
             }
         }
