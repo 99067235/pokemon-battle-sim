@@ -17,6 +17,11 @@
             this.belt = new Belt();
         }
 
+        public void addNameToBelt(string name)
+        {
+            this.belt.addTrainerName(name);
+        }
+
         public string getName()
         {
             return this.name;
