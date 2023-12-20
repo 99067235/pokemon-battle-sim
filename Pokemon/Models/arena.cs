@@ -9,19 +9,21 @@ namespace Pokemon.Models
 {
     internal class Arena
     {
+        private static int battles = 0;
         private static int winsTrainer1 = 0;
         private static int winsTrainer2 = 0;
         private static int ties = 0;
         private static int rounds = 0;
         public static void HandleBattle(Trainer trainer1, Trainer trainer2)
         {
+            battles++;
             Trainer previousWinner = null;
             pokeball pokeballPreviousWinner = null;
             while (trainer1.getBeltLength() > 0 && trainer2.getBeltLength() > 0)
             {
                 try
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(2000);
                     rounds = rounds + 1;
                     var pokeballTrainer1 = trainer1.getItemFromBelt(winsTrainer1);
                     var pokeballTrainer2 = trainer2.getItemFromBelt(winsTrainer2);
@@ -95,6 +97,7 @@ namespace Pokemon.Models
             Console.WriteLine($"Trainer 2 Wins: {winsTrainer2}");
             Console.WriteLine($"Ties: {ties}");
             Console.WriteLine($"Total Rounds: {rounds}");
+            Console.WriteLine($"Total Battles: {battles}");
         }
     }
 }
