@@ -17,7 +17,7 @@ namespace Pokemon.Models
             "Cim Took",
             "Eff Bjezos",
             "Rark Mutte",
-            "Orack Bobama",
+            "Arack Bobama",
             "Boe Jiden",
             "Tronald Dump"
         };
@@ -28,7 +28,9 @@ namespace Pokemon.Models
         {
             if (name == "" || name == null)
             {
-                name = "trainerName";
+                Random random = new Random();
+                int randomIndex = random.Next(trainerNames.Length);
+                name = trainerNames[randomIndex];
             }
             this.name = name;
         }
