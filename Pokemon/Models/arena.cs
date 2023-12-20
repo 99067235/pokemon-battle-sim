@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Pokemon.Models
 {
@@ -100,6 +101,20 @@ namespace Pokemon.Models
                     break;
                 }
             }
+            int score1 = trainer1.getScore();
+            int score2 = trainer2.getScore();
+            if (score1 == score2)
+            {
+                Console.WriteLine("Its a tie!");
+            }
+            else if (score1 > score2)
+            {
+                Console.WriteLine($"{trainer1.getName()} has won this round!");
+            }
+            else if (score2 > score1)
+            {
+                Console.WriteLine($"{trainer2.getName()} has won this round!");
+            }
         }
 
         public static void showScoreBoard()
@@ -119,6 +134,7 @@ namespace Pokemon.Models
             Console.WriteLine($"\nTotal Ties: {ties}");
             Console.WriteLine($"Total Rounds: {rounds}");
             Console.WriteLine($"Total Battles: {battles}");
+            Console.WriteLine("-------------------------");
         }
     }
 }

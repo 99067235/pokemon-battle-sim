@@ -17,7 +17,7 @@
             if (!pokemonInPokeball)
             {
                 this.PokemonReleased = true;
-                Console.WriteLine($"\n{this.pokemonInside.getName()} I CHOOSE YOU!");
+                Console.WriteLine($"\n{trainer.getName()}: {this.pokemonInside.getName()} I CHOOSE YOU!");
                 this.pokemonInside.BattleCry();
             }
             else

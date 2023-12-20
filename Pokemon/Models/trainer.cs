@@ -9,11 +9,27 @@ namespace Pokemon.Models
         private int score;
         private int rounds;
         private int battlePlayed;
+        private string[] trainerNames = {
+            "Gill Bates",
+            "Jeve Stobs",
+            "Zark Muckerberg",
+            "Melon Usk",
+            "Cim Took",
+            "Eff Bjezos",
+            "Rark Mutte",
+            "Orack Bobama",
+            "Boe Jiden",
+            "Tronald Dump"
+        };
 
         public Trainer() {}
 
         public void nameTrainer(string name)
         {
+            if (name == "" || name == null)
+            {
+                name = "trainerName";
+            }
             this.name = name;
         }
 
